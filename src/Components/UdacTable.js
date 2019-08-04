@@ -2,10 +2,10 @@ import React from 'react'
 import { Button, Table } from 'react-bootstrap';
 import '../App.css';
 
-const UdacTable = ({udaclist, deleteUdac}) => { 
+const UdacTable = ({udaclist, deleteUdac, updateUdac}) => { 
 
   return(
-    <Table hover responsive="lg">
+    <Table hover responsive bordered size="md">
       <thead>
         <tr>
           <th>#</th>
@@ -16,14 +16,19 @@ const UdacTable = ({udaclist, deleteUdac}) => {
       <tbody>
       {
         udaclist.length > 0 ? (
-          udaclist.map(udac => (
+          udaclist.map((udac, index) => (
           <tr key={udac.id}>
-            <td>{udac.id}</td>
-            <td>{udac.name}</td>
+            <td >{index + 1}</td>
+            <td >{udac.name}</td>
             <td>
-              <Button variant="outline-secondary" size="sm">Edit</Button>
+              <Button 
+                onClick={()=> updateUdac(udac.id)}
+                variant="light" className="text-info" size="sm">Edit
+              </Button>
+              
               <Button onClick={() => deleteUdac(udac.id)} 
-              variant="outline-secondary" size="sm" >Delete</Button>
+                variant="light" className="text-danger" size="sm" >Delete
+              </Button>
             </td>
           </tr>
         ))

@@ -17,3 +17,20 @@ h4{
 button{
   margin:0 .5em;
 }
+.preview-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  margin:5em;
+}
+.preview-header{
+  margin:1em 1em 2em 1em;
+}
+.preview-body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+}
+
