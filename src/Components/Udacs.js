@@ -5,10 +5,10 @@ import '../App.css';
 const Udacs = ({udacs, imagePreview}) => { 
 
   return(
-        <div>
+        <div >
             <br></br>
             
-            <DropdownButton id="dropdown-basic-button" title="Please Choose Udac" onSelect={(evt) => imagePreview(evt)}>
+            <DropdownButton id="dropdown-basic-button"  title="Please Choose Udac" onSelect={(evt) => imagePreview(evt)}>
             {
                 udacs.length > 0 ? (
                     udacs.map( udac => (

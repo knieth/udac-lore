@@ -1,7 +1,7 @@
 import React from 'react'
 import {  Image, Card} from 'react-bootstrap';
 import '../App.css';
-import Cover from '../cover.svg'
+import Cover from '../cover2.svg'
 const Preview = ({link}) => { 
 
   return(

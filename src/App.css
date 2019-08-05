@@ -5,6 +5,8 @@
   margin-top:1em;
 }
 
+
+
 h1{
   color:#333333;
   font-weight: 600;
@@ -34,3 +36,35 @@ button{
   justify-content: center;
 }
 
+.logo{
+  font-weight:600;
+}
+#dropdown-basic-button{
+  padding:1em 2em;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  
+}
+
+#dropdown-basic-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+  animation: shadow-pulse 1s ease-out infinite;
+}
+
+
+@keyframes shadow-pulse
+{
+     0% {
+          box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+     }
+     100% {
+          box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+     }
+}

@@ -23,7 +23,7 @@ const UdacTable = ({udaclist, deleteUdac, updateUdac}) => {
             <td>
               <Button 
                 onClick={()=> updateUdac(udac.id)}
-                variant="light" className="text-info" size="sm">Edit
+                variant="light" className="text-info" size="sm">Edit (Not yet working)
               </Button>
               
               <Button onClick={() => deleteUdac(udac.id)} 

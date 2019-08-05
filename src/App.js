@@ -36,14 +36,19 @@ const App = () => {
   const [preview, setPreview] = useState([])
   const [showLogin, setshowLogin] = useState(false)
   const [adminMode, setadminMode] = useState(false)
+  const [adminCredentials, setaadminCredentials] = useState({})
 
   const handleClose = () => setshowLogin(false)
   const handleShow = () => setshowLogin(true)
   const handleLogin = (e) => {
     e.preventDefault()
+    setaadminCredentials({
+      userName: "admin",
+      password: "!udacloreadmiN01"
+    })
     let userName = e.target.formUsername.value
     let password = e.target.formPassword.value
-    if(userName.trim() === "admin" && password.trim() === "admin"){
+    if(userName.trim() === adminCredentials.userName && password.trim() === adminCredentials.password){
       alert("Nice! Login Success")
       handleClose()
       setadminMode(true)
@@ -77,7 +82,7 @@ const App = () => {
   }
 
   const updateUdac = id => {
-    alert('not done yet damn it!')
+    alert('not yet working damn it!')
   }
 
   const imagePreview = id => {
@@ -89,7 +94,7 @@ const App = () => {
     <Container className="App">
       <Row >
         <Col md={11}>
-          <h3 className="text-secondary"><span className="text-primary">UDAC</span> Lore {
+          <h3 className="text-secondary "><span className="text-primary logo">Udac</span> Lore {
             adminMode ? (
               <Badge variant="secondary">Admin</Badge>
             ) :(
