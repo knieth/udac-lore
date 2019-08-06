@@ -3,7 +3,9 @@ import UdacTable from './Components/UdacTable';
 import AddUdacForm from './Components/AddUdac';
 import Udacs from './Components/Udacs';
 import ImagePreview from './Components/Preview';
-import { Container, Row, Col, Button, Badge, Modal, Form } from 'react-bootstrap';
+import LoginModal from './Components/LoginModal';
+
+import { Container, Row, Col, Button, Badge } from 'react-bootstrap';
 import firebase from './firebase';
 import './App.css';
 
@@ -34,10 +36,12 @@ const App = () => {
 
   const udacs = useUdacs()
   const [preview, setPreview] = useState([])
+  const [search, setSearch] = useState(udacs)
   const [showLogin, setshowLogin] = useState(false)
+  //temporary
   const [adminMode, setadminMode] = useState(false)
   const [adminCredentials, setaadminCredentials] = useState({})
-
+  
   const handleClose = () => setshowLogin(false)
   const handleShow = () => setshowLogin(true)
   const handleLogin = (e) => {
@@ -81,13 +85,25 @@ const App = () => {
       .delete()
   }
 
-  const updateUdac = id => {
-    alert('not yet working damn it!')
-  }
 
   const imagePreview = id => {
     setPreview(udacs.filter(udac => 
       udac.id == id))
+  }
+
+  const handleSearch = searchName => {
+   // console.log(udac)
+      
+     setSearch(udacs.sort().filter(udac => 
+      udac.name.toLowerCase().includes(searchName.toLowerCase()) ))
+      setPreview(udacs.sort().filter(udac => 
+        udac.name.toLowerCase() == searchName.toLowerCase()))
+    
+  }
+
+  const handleSelectSuggestion = udacsuggestion =>{
+    setPreview(udacs.sort().filter(udac => 
+      udac.name.toLowerCase() == udacsuggestion.toLowerCase()))
   }
 
   return (
@@ -102,7 +118,7 @@ const App = () => {
             )
           }
           </h3>
-          
+          <LoginModal show={showLogin} handleLogin={handleLogin} handleClose={handleClose}/>
         </Col>
         <Col md={1}>
           {
@@ -118,28 +134,7 @@ const App = () => {
           }
           
 
-          <Modal show={showLogin} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Login</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-            <Form onSubmit={handleLogin}>
-              <Form.Group controlId="formUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" />
-              </Form.Group>
-
-              <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
-
-            </Modal.Body>
-          </Modal>
+          
 
         </Col>
         
@@ -158,7 +153,8 @@ const App = () => {
               <Col md={8} xs={12}>
               <div className="flex-large">
                 <h4 className="text-secondary">UDAC List</h4>
-                <UdacTable udaclist={udacs} deleteUdac={deleteUdac} updateUdac={updateUdac}/>
+                <UdacTable udaclist={udacs} deleteUdac={deleteUdac} />
+    
               </div>
               </Col>
               
@@ -176,7 +172,7 @@ const App = () => {
             <div className="preview-container">
               <div className="preview-header text-center">
                 <h4 className="text-secondary ">Learn any UDAC anytime</h4>
-                <Udacs udacs={udacs} imagePreview={imagePreview}/>
+                <Udacs udacs={udacs} imagePreview={imagePreview} handleSearch={handleSearch} search={search} handleSelectSuggestion={handleSelectSuggestion}/>
               </div>
               <div className="preview-body">
                 <ImagePreview link={preview}/>

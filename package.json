@@ -7,6 +7,7 @@
     "firebase": "^6.3.4",
     "re-base": "^4.0.0",
     "react": "^16.8.6",
+    "react-autocomplete": "^1.8.1",
     "react-bootstrap": "^1.0.0-beta.10",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
