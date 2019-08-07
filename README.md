@@ -1,4 +1,9 @@
-##UDAC LORE
+## UDAC LORE
+
+Learn any udac anytime
+
+live version here:
+https://udac.github.io
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
