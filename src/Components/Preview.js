@@ -16,7 +16,7 @@ const Preview = ({link}) => {
                         </Card.Body>
                         {
                             link[0].link.includes("https") ? (
-                                <Card.Img variant="bottom" src={link[0].link} />
+                                <Card.Img variant="bottom"  src={link[0].link} />
                             ) : (
                                 <p className="text-center text-secondary">Preview not available or link might not working</p>
                             )

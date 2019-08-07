@@ -27,15 +27,15 @@ const Udacs = ({udacs, imagePreview, handleSearch, search, handleSelectSuggestio
                 
             <br></br>
             {
-            search.length > 0 ? ( <p className="text-center" >Result Found</p>) : ('')
+            search.length > 0 ? ( <p className="text-center text-secondary" >Results Found</p>) : ('' )
                     }
-            <ListGroup className="suggestion-list">
+            <ListGroup className="suggestion-list" variant="flush">
             
                 {
                     search.length > 0 ? (
                         
                         search.map( udac => (
-                            <ListGroup.Item key={udac.id} 
+                            <ListGroup.Item key={udac.id } className="suggest-item"
                             action
                             onClick={() => handleSelectSuggestion(udac.name)}
                             >{udac.name}</ListGroup.Item>

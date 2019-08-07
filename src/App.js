@@ -171,8 +171,10 @@ const App = () => {
         <Col xs={12} md={12}>
             <div className="preview-container">
               <div className="preview-header text-center">
-                <h4 className="text-secondary ">Learn any UDAC anytime</h4>
+                <h3 className="text-primary font-weight-bold">Learn any UDAC anytime</h3>
+              <div className="searchBox-container">
                 <Udacs udacs={udacs} imagePreview={imagePreview} handleSearch={handleSearch} search={search} handleSelectSuggestion={handleSelectSuggestion}/>
+              </div>
               </div>
               <div className="preview-body">
                 <ImagePreview link={preview}/>
