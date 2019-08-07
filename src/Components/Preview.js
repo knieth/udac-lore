@@ -24,7 +24,7 @@ const Preview = ({link}) => {
                         
                     </Card>
                 ) :
-                <Image src={Cover} fluid />
+                <Image src={Cover} fluid width="500px"/>
             }
         </div>
 
