@@ -53,7 +53,7 @@ button{
 #dropdown-basic-button:hover {
   border-color: #2EE59D;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #33333;
+  color: #333333;
   transform: translateY(-7px);
   animation: shadow-pulse 1s ease-out infinite;
 }
